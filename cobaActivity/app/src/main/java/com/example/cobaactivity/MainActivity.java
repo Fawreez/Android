@@ -11,63 +11,28 @@ import android.widget.CompoundButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    int request_Code = 1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.example.cobaactivity.R.layout.activity_main);
         Log.d("lifestyle","onCreate firstActivity invoked");
         Toast.makeText(this,"onCreate firstActivity invoked", Toast.LENGTH_SHORT).show();
     }
+
     public void onClick(View view) {
-        startActivity(new Intent("com.example.cobaactivity.SecondActivity"));
+        startActivityForResult(new Intent("com.example.cobaactivity.SecondActivity"),request_Code);
     }
-    @Override
-    protected void onStart () {
-        super.onStart();
-        Log.d("lifecycle", "onStart firstActivity invoked");
-        Toast.makeText(this, "onStart firstActivity invoked", Toast.LENGTH_SHORT).show();
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == request_Code) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this,data.getData().toString(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
     }
-
-    @Override
-    protected void onResume () {
-        super.onResume();
-        Log.d("lifecycle", "onResume firstActivity invoked");
-        Toast.makeText(this, "onResume firstActivity invoked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onPause () {
-        super.onPause();
-        Log.d("lifecycle", "onPause firstActivity invoked");
-        Toast.makeText(this, "onPause firstActivity invoked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onStop () {
-        super.onStop();
-        Log.d("lifecycle", "onStop firstActivity invoked");
-        Toast.makeText(this, "onStop firstActivity invoked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onRestart () {
-        super.onRestart();
-        Log.d("lifecycle", "onRestart firstActivity invoked");
-        Toast.makeText(this, "onRestart firstActivity invoked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onDestroy () {
-        super.onDestroy();
-        Log.d("lifecycle", "onDestroy firstActivity invoked");
-        Toast.makeText(this, "onDestroy firstActivity invoked", Toast.LENGTH_SHORT).show();
-    }
-
-//    public void onClick(View v){
-//        Intent intent = new Intent (getApplicationContext(),SecondActivity.class);
-//        startActivityForResult(intent, REQUEST_CODE);
-//    }
 
 }
