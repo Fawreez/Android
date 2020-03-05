@@ -8,10 +8,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Dimas Maulana on 5/26/17.
- * Email : araymaulana66@gmail.com
- */
 
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MahasiswaViewHolder> {
 
