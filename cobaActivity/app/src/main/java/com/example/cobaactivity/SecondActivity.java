@@ -26,5 +26,5 @@ public class SecondActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(com.example.cobaactivity.R.layout.activity_second);
     }
-    
+
 }
